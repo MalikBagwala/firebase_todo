@@ -1,6 +1,15 @@
+import 'package:firebase_todo/main.dart';
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 
-class AddTaskModal extends StatelessWidget {
+class AddTaskModal extends StatefulWidget {
+  @override
+  _AddTaskModalState createState() => _AddTaskModalState();
+}
+
+class _AddTaskModalState extends State<AddTaskModal> {
+  String title;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,6 +33,11 @@ class AddTaskModal extends StatelessWidget {
               TextField(
                 autofocus: true,
                 textAlign: TextAlign.center,
+                onChanged: (text) {
+                  setState(() {
+                    title = text;
+                  });
+                },
               ),
               SizedBox(
                 height: 20.0,
@@ -43,7 +57,10 @@ class AddTaskModal extends StatelessWidget {
                     ],
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<TodoState>(context, listen: false).add(title);
+                  Navigator.pop(context);
+                },
               )
             ],
           ),

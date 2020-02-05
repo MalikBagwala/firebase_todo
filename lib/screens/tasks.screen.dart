@@ -1,10 +1,20 @@
+import 'dart:math';
+
+import 'package:firebase_todo/main.dart';
 import 'package:firebase_todo/screens/tasks/add_task.modal.dart';
 import 'package:firebase_todo/screens/tasks/tasks.widget.dart';
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
+  @override
+  _TasksScreenState createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
+    int totalTasks = Provider.of<TodoState>(context).tasks.length;
     return Container(
       child: Scaffold(
         backgroundColor: Colors.pink.shade600,
@@ -63,7 +73,7 @@ class TasksScreen extends StatelessWidget {
                         text: TextSpan(
                           children: [
                             TextSpan(
-                              text: "12 ",
+                              text: "$totalTasks ",
                               style: TextStyle(fontWeight: FontWeight.w900),
                             ),
                             TextSpan(text: "Todos")
