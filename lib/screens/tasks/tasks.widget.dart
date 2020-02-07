@@ -7,17 +7,25 @@ class Tasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map> tasks = Provider.of<TodoState>(context).tasks;
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return Task(
-          id: tasks[index]['id'],
-          key: Key(tasks[index]['id']),
-          title: tasks[index]['name'],
-          isChecked: tasks[index]['isChecked'],
-        );
-      },
-      itemCount: tasks.length,
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
-    );
+    // return ListView.builder(
+    //   itemBuilder: (context, index) {
+
+    //   },
+    //   itemCount: tasks.length,
+    // );
+    return ReorderableListView(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        children: [
+          for (var task in tasks)
+            Task(
+              id: task['id'],
+              key: Key(task['id']),
+              title: task['name'],
+              isChecked: task['isChecked'],
+            ),
+        ],
+        onReorder: (oldIndex, newIndex) {
+          print("$oldIndex $newIndex");
+        });
   }
 }
