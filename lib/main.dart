@@ -1,3 +1,4 @@
+import 'package:firebase_todo/screens/login/login.screen.dart';
 import 'package:firebase_todo/screens/tasks.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
       create: (context) => TodoState(),
       child: MaterialApp(
         routes: {
-          "/": (context) => TasksScreen(),
+          "/": (context) => LoginScreen(),
+          "/tasks": (context) => TasksScreen(),
         },
       ),
     );
