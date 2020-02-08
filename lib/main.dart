@@ -40,4 +40,14 @@ class TodoState extends ChangeNotifier {
     tasks[taskIndex]['isChecked'] = !tasks[taskIndex]['isChecked'];
     notifyListeners();
   }
+
+  void reorderTasks(int oldIndex, int newIndex) {
+    Map task = tasks.removeAt(oldIndex);
+    if (newIndex > tasks.length) {
+      tasks.insert(newIndex - 1, task);
+    } else {
+      tasks.insert(newIndex, task);
+    }
+    notifyListeners();
+  }
 }

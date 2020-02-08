@@ -7,12 +7,6 @@ class Tasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map> tasks = Provider.of<TodoState>(context).tasks;
-    // return ListView.builder(
-    //   itemBuilder: (context, index) {
-
-    //   },
-    //   itemCount: tasks.length,
-    // );
     return ReorderableListView(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         children: [
@@ -25,7 +19,8 @@ class Tasks extends StatelessWidget {
             ),
         ],
         onReorder: (oldIndex, newIndex) {
-          print("$oldIndex $newIndex");
+          Provider.of<TodoState>(context, listen: false)
+              .reorderTasks(oldIndex, newIndex);
         });
   }
 }

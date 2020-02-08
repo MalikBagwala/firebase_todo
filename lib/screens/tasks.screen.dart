@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:firebase_todo/main.dart';
 import 'package:firebase_todo/screens/tasks/add_task.modal.dart';
 import 'package:firebase_todo/screens/tasks/tasks.widget.dart';
