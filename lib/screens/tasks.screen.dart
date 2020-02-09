@@ -46,13 +46,16 @@ class _TasksScreenState extends State<TasksScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 30.0,
-                      child: Icon(
-                        Icons.list,
-                        color: Colors.pink.shade900,
-                        size: 28.0,
+                    Hero(
+                      tag: "todo-logo",
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 30.0,
+                        child: Icon(
+                          Icons.track_changes,
+                          color: Colors.pink.shade900,
+                          size: 28.0,
+                        ),
                       ),
                     ),
                     SizedBox(

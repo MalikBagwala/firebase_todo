@@ -1,4 +1,4 @@
-import 'package:firebase_todo/screens/login/login.screen.dart';
+import 'package:firebase_todo/screens/login.screen.dart';
 import 'package:firebase_todo/screens/tasks.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
