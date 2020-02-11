@@ -30,6 +30,12 @@ class _LoginFormState extends State<LoginForm> {
               style: TextStyle(fontSize: 20.0, color: Colors.white),
               onChanged: (value) {},
             ),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/tasks");
+            },
+            child: Text("Submit"),
           )
         ],
       ),
