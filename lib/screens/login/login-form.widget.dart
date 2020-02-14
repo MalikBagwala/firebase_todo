@@ -1,3 +1,4 @@
+import 'package:firebase_todo/routes.dart';
 import "package:flutter/material.dart";
 
 class LoginForm extends StatefulWidget {
@@ -33,7 +34,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           RaisedButton(
             onPressed: () {
-              Navigator.pushNamed(context, "/tasks");
+              Navigator.pushNamed(context, Routes.Tasks);
             },
             child: Text("Submit"),
           )

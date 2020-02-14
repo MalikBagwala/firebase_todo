@@ -1,5 +1,4 @@
-import 'package:firebase_todo/screens/login.screen.dart';
-import 'package:firebase_todo/screens/tasks.screen.dart';
+import 'package:firebase_todo/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
@@ -12,10 +11,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<TodoState>(
       create: (context) => TodoState(),
       child: MaterialApp(
-        routes: {
-          "/": (context) => LoginScreen(),
-          "/tasks": (context) => TasksScreen(),
-        },
+        routes: Routes.getRoutes(),
       ),
     );
   }
