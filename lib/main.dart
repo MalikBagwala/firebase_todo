@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 void main() => runApp(MyApp());
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,10 @@ class TodoState extends ChangeNotifier {
     {"id": uuid.v4(), "name": "Buy Milk", "isChecked": false},
     {"id": uuid.v4(), "name": "Buy Eggs", "isChecked": false},
     {"id": uuid.v4(), "name": "Buy Bread", "isChecked": false},
-    {"id": uuid.v4(), "name": "Finish Coding", "isChecked": false}
+    {"id": uuid.v4(), "name": "Finish Coding", "isChecked": false},
+    {"id": uuid.v4(), "name": "Finish Dancing", "isChecked": false},
+    {"id": uuid.v4(), "name": "Buy Biscs", "isChecked": false}
+
   ];
 
   void add(title) {
