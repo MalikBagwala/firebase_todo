@@ -13,7 +13,7 @@ class _LoginFormState extends State<LoginForm> {
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
-/**/ @override
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),

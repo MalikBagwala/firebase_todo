@@ -1,3 +1,4 @@
+import 'package:firebase_todo/routes.dart';
 import 'package:firebase_todo/screens/login/login-form.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +24,19 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height:
-              30.0,),
+            SizedBox(
+              height: 30.0,
+            ),
             LoginForm(),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.Register);
+              },
+              child: Text(
+                "Don't have an account?",
+                style: TextStyle(color: Colors.white),
+              ),
+            )
           ],
         )),
       ),
