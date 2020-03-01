@@ -13,6 +13,7 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     int totalTasks = Provider.of<TodoState>(context).tasks.length;
+
     return Container(
       child: Scaffold(
         backgroundColor: Colors.pink.shade600,

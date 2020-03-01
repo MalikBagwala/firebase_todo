@@ -14,7 +14,10 @@ class Task extends StatelessWidget {
     return CheckboxListTile(
       value: isChecked,
       activeColor: Colors.pink,
-      onChanged: (value) {
+      onChanged: (value) async {
+        var todos = await TodoState().getTodos();
+        // print(todos);
+        // print(todos);
         Provider.of<TodoState>(context, listen: false).toggle(id);
       },
       title: Text(

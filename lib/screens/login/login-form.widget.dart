@@ -45,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
             title: "Submit",
             onPressed: () async {
               try {
-                final newUser = await _auth.createUserWithEmailAndPassword(
+                final newUser = await _auth.signInWithEmailAndPassword(
                     email: email, password: password);
                 if (newUser != null) {
                   Scaffold.of(context).showSnackBar(
@@ -56,7 +56,12 @@ class _LoginFormState extends State<LoginForm> {
                           Icons.check,
                           color: Colors.greenAccent,
                         ),
-                        title: Text("${newUser.user.email} Registered"),
+                        title: Text(
+                          "Logged in as ${newUser.user.email}",
+                          style: TextStyle(
+                            fontSize: 12.0,
+                          ),
+                        ),
                       ),
                     ),
                   );
