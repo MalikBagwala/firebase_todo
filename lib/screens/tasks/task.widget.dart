@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_todo/main.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
@@ -15,9 +16,10 @@ class Task extends StatelessWidget {
       value: isChecked,
       activeColor: Colors.pink,
       onChanged: (value) async {
-        var todos = await TodoState().getTodos();
-        // print(todos);
-        // print(todos);
+        print(id);
+        await Firestore.instance
+            .document("todos/$id")
+            .updateData({'isCompleted': value});
         Provider.of<TodoState>(context, listen: false).toggle(id);
       },
       title: Text(

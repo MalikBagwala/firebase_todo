@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_todo/main.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
@@ -57,8 +59,14 @@ class _AddTaskModalState extends State<AddTaskModal> {
                     ],
                   ),
                 ),
-                onPressed: () {
-                  Provider.of<TodoState>(context, listen: false).add(title);
+                onPressed: () async {
+                  var currentUser = await FirebaseAuth.instance.currentUser();
+                  Firestore.instance.collection("todos").add({
+                    "title": title,
+                    "userId": currentUser.uid,
+                    "isCompleted": false
+                  });
+
                   Navigator.pop(context);
                 },
               )
