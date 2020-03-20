@@ -1,3 +1,4 @@
+import 'package:firebase_todo/components/user_profile.widget.dart';
 import 'package:firebase_todo/main.dart';
 import 'package:firebase_todo/screens/tasks/add_task.modal.dart';
 import 'package:firebase_todo/screens/tasks/tasks.widget.dart';
@@ -16,6 +17,7 @@ class _TasksScreenState extends State<TasksScreen> {
 
     return Container(
       child: Scaffold(
+        drawer: UserProfile(),
         backgroundColor: Colors.pink.shade600,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -26,8 +28,6 @@ class _TasksScreenState extends State<TasksScreen> {
                 child: Container(
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
-
-                      
                   child: AddTaskModal(),
                 ),
               ),
